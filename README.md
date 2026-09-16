@@ -1,3 +1,5 @@
+![ViZA Dashboard](ViZA screenshot.png)
+
 # ViZA — Visible South Africa 🇿🇦
 
 > *A national data intelligence platform that makes South Africa's challenges visible — so they can be solved.*
