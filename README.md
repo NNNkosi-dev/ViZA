@@ -4,7 +4,7 @@
 
 > *A national data intelligence concept that makes South Africa's challenges visible and trackable, so they can be solved.*
 
-**ViZA** is a portfolio project I built as a proof-of-concept for a real change initiative I proposed in my 2026 AFRIKA KOMMT! fellowship application. I didn't get the fellowship, but I figured I'd still build the idea and share it on GitHub. It explores what a national data intelligence layer could look like for South Africa: connecting government data sources that normally sit in silos, and surfacing the insights in one place.
+**ViZA** is a project I built as a proof-of-concept for a real change initiative I proposed in my 2026 AFRIKA KOMMT! fellowship application. I didn't get the fellowship, but I figured I'd still build the idea and share it on GitHub. It explores what a national data intelligence layer could look like for South Africa: connecting government data sources that normally sit in silos, and surfacing the insights in one place.
 
 ---
 
