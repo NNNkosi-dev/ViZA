@@ -1,4 +1,4 @@
-![ViZA Dashboard](ViZA screenshot.png)
+![ViZA Dashboard](screenshot.png)
 
 # ViZA — Visible South Africa 🇿🇦
 
