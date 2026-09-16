@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "source": "DBE Annual School Survey 2022, DHIS 2023, SAPS Crime Stats 2022/23 (partially simulated)",
+    "last_updated": "2023-12-01",
+    "unit": "Various — see per-indicator notes"
+  },
+  "national_average": {
+    "matric_pass_rate": 80.1,
+    "clinic_access_km": 8.4,
+    "crime_index": 52.3,
+    "school_dropout_rate": 14.2
+  },
+  "provinces": [
+    {"name": "Gauteng", "code": "GP", "matric_pass_rate": 87.2, "clinic_access_km": 4.2, "crime_index": 68.4, "school_dropout_rate": 10.1},
+    {"name": "Western Cape", "code": "WC", "matric_pass_rate": 89.4, "clinic_access_km": 5.1, "crime_index": 71.2, "school_dropout_rate": 8.7},
+    {"name": "KwaZulu-Natal", "code": "KZN", "matric_pass_rate": 79.3, "clinic_access_km": 7.8, "crime_index": 54.6, "school_dropout_rate": 15.3},
+    {"name": "Eastern Cape", "code": "EC", "matric_pass_rate": 71.8, "clinic_access_km": 14.6, "crime_index": 48.3, "school_dropout_rate": 21.4},
+    {"name": "Limpopo", "code": "LP", "matric_pass_rate": 74.2, "clinic_access_km": 16.3, "crime_index": 31.2, "school_dropout_rate": 18.9},
+    {"name": "Mpumalanga", "code": "MP", "matric_pass_rate": 76.4, "clinic_access_km": 11.2, "crime_index": 44.7, "school_dropout_rate": 16.8},
+    {"name": "North West", "code": "NW", "matric_pass_rate": 75.1, "clinic_access_km": 12.4, "crime_index": 42.1, "school_dropout_rate": 17.6},
+    {"name": "Free State", "code": "FS", "matric_pass_rate": 82.3, "clinic_access_km": 9.1, "crime_index": 55.8, "school_dropout_rate": 13.2},
+    {"name": "Northern Cape", "code": "NC", "matric_pass_rate": 78.6, "clinic_access_km": 18.7, "crime_index": 49.4, "school_dropout_rate": 15.8}
+  ]
+}

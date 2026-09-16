@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "source": "Stats SA Quarterly Labour Force Survey Q3 2023 (real data, youth breakdown partially simulated)",
+    "last_updated": "2023-11-20",
+    "unit": "Percentage unemployed (expanded definition)"
+  },
+  "national_average": {
+    "youth_15_24": 59.4,
+    "youth_25_34": 38.2,
+    "overall": 41.2
+  },
+  "provinces": [
+    {"name": "Gauteng", "code": "GP", "youth_15_24": 48.3, "youth_25_34": 31.2, "overall": 34.1, "neet_rate": 36.2},
+    {"name": "Western Cape", "code": "WC", "youth_15_24": 38.7, "youth_25_34": 24.6, "overall": 27.3, "neet_rate": 28.4},
+    {"name": "KwaZulu-Natal", "code": "KZN", "youth_15_24": 61.2, "youth_25_34": 40.8, "overall": 43.7, "neet_rate": 48.1},
+    {"name": "Eastern Cape", "code": "EC", "youth_15_24": 72.4, "youth_25_34": 52.3, "overall": 55.8, "neet_rate": 61.3},
+    {"name": "Limpopo", "code": "LP", "youth_15_24": 68.9, "youth_25_34": 48.7, "overall": 51.2, "neet_rate": 57.8},
+    {"name": "Mpumalanga", "code": "MP", "youth_15_24": 63.1, "youth_25_34": 43.2, "overall": 46.4, "neet_rate": 52.3},
+    {"name": "North West", "code": "NW", "youth_15_24": 64.7, "youth_25_34": 44.9, "overall": 47.8, "neet_rate": 53.6},
+    {"name": "Free State", "code": "FS", "youth_15_24": 62.8, "youth_25_34": 42.1, "overall": 45.3, "neet_rate": 51.2},
+    {"name": "Northern Cape", "code": "NC", "youth_15_24": 58.4, "youth_25_34": 37.6, "overall": 40.8, "neet_rate": 46.7}
+  ]
+}

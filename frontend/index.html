@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ViZA — Visible South Africa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- ── HEADER ─────────────────────────────────────────────── -->
+<header>
+  <div class="header-left">
+    <div class="logo">Vi<span>ZA</span></div>
+    <div class="logo-sub">VISIBLE SOUTH AFRICA · NATIONAL DATA INTELLIGENCE</div>
+  </div>
+  <div class="header-right">
+    <div class="live-badge">● LIVE</div>
+    <div class="timestamp" id="timestamp">Loading...</div>
+  </div>
+</header>
+
+<!-- ── TICKER ─────────────────────────────────────────────── -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker">
+    Loading data feeds...
+  </div>
+</div>
+
+<!-- ── SUMMARY CARDS ──────────────────────────────────────── -->
+<section class="summary-grid" id="summary-cards">
+  <div class="card" id="card-electricity">
+    <div class="card-label">ELECTRICITY ACCESS</div>
+    <div class="card-value" id="val-electricity">—</div>
+    <div class="card-sub">national average</div>
+  </div>
+  <div class="card" id="card-water">
+    <div class="card-label">WATER ACCESS</div>
+    <div class="card-value" id="val-water">—</div>
+    <div class="card-sub">national average</div>
+  </div>
+  <div class="card highlight" id="card-unemployment">
+    <div class="card-label">YOUTH UNEMPLOYMENT (15–24)</div>
+    <div class="card-value" id="val-unemployment">—</div>
+    <div class="card-sub">national average</div>
+  </div>
+  <div class="card" id="card-matric">
+    <div class="card-label">MATRIC PASS RATE</div>
+    <div class="card-value" id="val-matric">—</div>
+    <div class="card-sub">national average</div>
+  </div>
+  <div class="card anomaly-card" id="card-anomalies">
+    <div class="card-label">⚠ ANOMALIES DETECTED</div>
+    <div class="card-value" id="val-anomalies">—</div>
+    <div class="card-sub">indicators below threshold</div>
+  </div>
+  <div class="card" id="card-sources">
+    <div class="card-label">DATA SOURCES</div>
+    <div class="card-value" id="val-sources">4</div>
+    <div class="card-sub">Stats SA · DBE · DHIS · SAPS</div>
+  </div>
+</section>
+
+<!-- ── PROVINCE SELECTOR ───────────────────────────────────── -->
+<section class="province-bar">
+  <span class="province-label">FILTER BY PROVINCE:</span>
+  <div class="province-pills" id="province-pills">
+    <button class="pill active" data-code="ALL">ALL</button>
+  </div>
+</section>
+
+<!-- ── TABS ───────────────────────────────────────────────── -->
+<div class="tab-bar">
+  <button class="tab active" data-tab="service">SERVICE DELIVERY</button>
+  <button class="tab" data-tab="unemployment">YOUTH UNEMPLOYMENT</button>
+  <button class="tab" data-tab="indicators">GOV. INDICATORS</button>
+  <button class="tab" data-tab="anomalies">⚠ ANOMALY FEED</button>
+  <button class="tab" data-tab="citizen">CITIZEN FLAGS</button>
+</div>
+
+<!-- ── TAB PANELS ─────────────────────────────────────────── -->
+<main class="tab-content">
+
+  <!-- SERVICE DELIVERY -->
+  <section class="panel active" id="panel-service">
+    <div class="panel-header">
+      <h2>SERVICE DELIVERY <span>— Household Access by Province</span></h2>
+      <div class="source-tag">Source: Stats SA General Household Survey 2022/23</div>
+    </div>
+    <div class="chart-grid">
+      <div class="chart-box wide">
+        <div class="chart-title">ELECTRICITY & WATER ACCESS (%)</div>
+        <canvas id="chart-sd-bar"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">SANITATION ACCESS (%)</div>
+        <canvas id="chart-sd-sanitation"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">REFUSE REMOVAL (%)</div>
+        <canvas id="chart-sd-refuse"></canvas>
+      </div>
+    </div>
+    <div class="data-table-wrap">
+      <table class="data-table" id="table-sd"></table>
+    </div>
+  </section>
+
+  <!-- UNEMPLOYMENT -->
+  <section class="panel" id="panel-unemployment">
+    <div class="panel-header">
+      <h2>YOUTH UNEMPLOYMENT <span>— Ages 15–34 by Province</span></h2>
+      <div class="source-tag">Source: Stats SA QLFS Q3 2023 (youth breakdown partially simulated)</div>
+    </div>
+    <div class="chart-grid">
+      <div class="chart-box wide">
+        <div class="chart-title">YOUTH UNEMPLOYMENT RATE — 15 TO 24 vs 25 TO 34 (%)</div>
+        <canvas id="chart-un-grouped"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">NEET RATE (Not in Education, Employment or Training)</div>
+        <canvas id="chart-un-neet"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">OVERALL UNEMPLOYMENT vs NATIONAL AVG</div>
+        <canvas id="chart-un-overall"></canvas>
+      </div>
+    </div>
+    <div class="data-table-wrap">
+      <table class="data-table" id="table-un"></table>
+    </div>
+  </section>
+
+  <!-- INDICATORS -->
+  <section class="panel" id="panel-indicators">
+    <div class="panel-header">
+      <h2>GOVERNMENT INDICATORS <span>— Education, Health & Crime</span></h2>
+      <div class="source-tag">Source: DBE Annual Survey 2022 · DHIS 2023 · SAPS Crime Stats 2022/23</div>
+    </div>
+    <div class="chart-grid">
+      <div class="chart-box wide">
+        <div class="chart-title">MATRIC PASS RATE vs SCHOOL DROPOUT RATE (%)</div>
+        <canvas id="chart-ind-education"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">CLINIC DISTANCE (km to nearest facility)</div>
+        <canvas id="chart-ind-clinic"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">CRIME INDEX (higher = more incidents per 100k)</div>
+        <canvas id="chart-ind-crime"></canvas>
+      </div>
+    </div>
+    <div class="data-table-wrap">
+      <table class="data-table" id="table-ind"></table>
+    </div>
+  </section>
+
+  <!-- ANOMALY FEED -->
+  <section class="panel" id="panel-anomalies">
+    <div class="panel-header">
+      <h2>⚠ ANOMALY FEED <span>— Auto-Detected Below-Threshold Indicators</span></h2>
+      <div class="source-tag">Threshold: 8+ percentage points below national average · Updated in real time</div>
+    </div>
+    <div class="anomaly-intro">
+      ViZA continuously monitors all provincial indicators against national benchmarks. When a province falls significantly below average, it is automatically flagged here — making resource gaps visible without waiting for a report or a whistleblower.
+    </div>
+    <div id="anomaly-list" class="anomaly-list">Loading anomalies...</div>
+  </section>
+
+  <!-- CITIZEN FLAGS -->
+  <section class="panel" id="panel-citizen">
+    <div class="panel-header">
+      <h2>CITIZEN FLAGS <span>— Report Incorrect or Outdated Data</span></h2>
+      <div class="source-tag">All submissions are publicly logged · Reviewed by the ViZA Data Integrity Team</div>
+    </div>
+    <div class="citizen-grid">
+      <div class="flag-form-wrap">
+        <div class="form-title">SUBMIT A DATA FLAG</div>
+        <div class="flag-form">
+          <div class="form-row">
+            <label>Province</label>
+            <select id="flag-province"></select>
+          </div>
+          <div class="form-row">
+            <label>Category</label>
+            <select id="flag-category">
+              <option value="Service Delivery">Service Delivery</option>
+              <option value="Youth Unemployment">Youth Unemployment</option>
+              <option value="Education">Education</option>
+              <option value="Health">Health</option>
+              <option value="Crime">Crime</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label>Indicator</label>
+            <input type="text" id="flag-indicator" placeholder="e.g. Water Access %" />
+          </div>
+          <div class="form-row">
+            <label>Value You Observed</label>
+            <input type="number" id="flag-value" placeholder="e.g. 45.2" />
+          </div>
+          <div class="form-row">
+            <label>Your Note</label>
+            <textarea id="flag-note" rows="3" placeholder="Describe what you observed and why the data seems incorrect..."></textarea>
+          </div>
+          <div class="form-row">
+            <label>Contact (optional)</label>
+            <input type="text" id="flag-contact" placeholder="Email or Anonymous" />
+          </div>
+          <button class="submit-btn" id="flag-submit">SUBMIT FLAG</button>
+          <div id="flag-feedback" class="flag-feedback"></div>
+        </div>
+      </div>
+      <div class="audit-log-wrap">
+        <div class="form-title">PUBLIC AUDIT LOG <span id="flag-count"></span></div>
+        <div id="audit-log" class="audit-log">Loading flags...</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-left">
+    <strong>ViZA</strong> — Visible South Africa · Mock Portfolio Project
+  </div>
+  <div class="footer-right">
+    Built by Nompumelelo N. Nkosi · FastAPI + Vanilla JS · <a href="https://github.com" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

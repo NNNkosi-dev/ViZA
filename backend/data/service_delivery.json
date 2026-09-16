@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "source": "Statistics South Africa - General Household Survey 2022/2023 (real data, gaps simulated)",
+    "last_updated": "2024-01-15",
+    "unit": "Percentage of households with access"
+  },
+  "national_average": {
+    "electricity": 84.2,
+    "water": 76.8,
+    "sanitation": 72.1,
+    "refuse_removal": 61.3
+  },
+  "provinces": [
+    {"name": "Gauteng", "code": "GP", "electricity": 92.4, "water": 89.3, "sanitation": 88.7, "refuse_removal": 82.1, "population": 15810388},
+    {"name": "Western Cape", "code": "WC", "electricity": 93.1, "water": 91.2, "sanitation": 90.3, "refuse_removal": 85.6, "population": 7005741},
+    {"name": "KwaZulu-Natal", "code": "KZN", "electricity": 82.3, "water": 74.6, "sanitation": 68.4, "refuse_removal": 55.2, "population": 11513015},
+    {"name": "Eastern Cape", "code": "EC", "electricity": 72.1, "water": 63.4, "sanitation": 55.8, "refuse_removal": 42.3, "population": 6734001},
+    {"name": "Limpopo", "code": "LP", "electricity": 78.4, "water": 62.1, "sanitation": 51.3, "refuse_removal": 35.7, "population": 5982584},
+    {"name": "Mpumalanga", "code": "MP", "electricity": 80.2, "water": 68.9, "sanitation": 61.4, "refuse_removal": 48.9, "population": 4592187},
+    {"name": "North West", "code": "NW", "electricity": 79.6, "water": 67.3, "sanitation": 59.8, "refuse_removal": 46.2, "population": 4108816},
+    {"name": "Free State", "code": "FS", "electricity": 85.3, "water": 78.4, "sanitation": 71.2, "refuse_removal": 63.8, "population": 2928903},
+    {"name": "Northern Cape", "code": "NC", "electricity": 83.7, "water": 76.2, "sanitation": 69.4, "refuse_removal": 58.4, "population": 1263875}
+  ]
+}
